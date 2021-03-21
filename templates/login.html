@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+{% load static %}
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Softnio">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<!-- Fav Icon  -->
+	<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+	<!-- Site Title  -->
+	<title>Login | Kenalgotrade - Online Algorithmic Retail Trading</title>
+	<!-- Bundle and Base CSS -->
+	<link rel="stylesheet" href="{% static 'assets/css/vendor.bundle.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+</head>
+
+<body class="nk-body body-wider bg-light-alt">
+
+	<div class="nk-wrap">
+
+		<main class="nk-pages nk-pages-centered bg-theme">
+			<div class="ath-container">
+				<div class="ath-header text-center">
+					<a href="/" class="ath-logo"><img src="{% static 'images/logo-s2-white.png' %}" alt="logo"></a>
+				</div>
+				<div class="ath-body">
+					<h5 class="ath-heading title">Sign in</h5>
+					<form method="post">
+						{% csrf_token %}
+						<input type="hidden" name="next" value="{{ next }}">
+						{% include 'includes/form.html' %}
+						
+						<div class="d-flex justify-content-between align-items-center pdb-r">
+							<div class="field-item pb-0">
+								<input class="input-checkbox" id="chb1" type="checkbox">
+								<label for="chb1">Remember Me</label>
+							</div>
+							<div class="forget-link fz-6">
+								<a href="#">Forgot password?</a>
+							</div>
+						</div>
+						<div id="com_preload" class="d-none">
+							<img src="{% static 'images/preloader.gif' %}" />
+						</div>
+						<div id="com_base" class="mb-3">
+							<button class="btn btn-primary btn-block btn-md my-0 mx-auto d-block" type="submit">Sign In</button>
+						</div>
+					</form>
+					<div class="text-center">
+						Don’t have an account? <a href="{% url 'register' %}">Sign up</a>
+					</div>
+				</div>
+			</div>
+		</main>
+
+	</div>
+	<div class="preloader"><span class="spinner spinner-round"></span></div>
+
+	<!-- JavaScript -->
+	<script src="{% static 'assets/js/jquery.bundle.js' %}"></script>
+	<script src="{% static 'assets/js/scripts.js' %}"></script>
+	<script src="{% static 'assets/js/charts.js' %}"></script>
+
+</body>
+</html>

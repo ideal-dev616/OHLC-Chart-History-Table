@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html>
+    {% load static %}
+    <head>
+        <title>BackTesting OHLC Chart</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Plugins css -->
+        <link href="{% static 'assets/custom/libs/flatpickr/flatpickr.min.css' %}" rel="stylesheet" type="text/css" />
+
+        <link href="{% static 'assets/custom/libs/jquery-nice-select/nice-select.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/custom/libs/select2/select2.min.css' %}" rel="stylesheet" type="text/css" />
+
+
+        <!-- third party css -->
+        <link href="{% static 'assets/custom/libs/datatables/dataTables.bootstrap4.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/custom/libs/datatables/responsive.bootstrap4.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/custom/libs/datatables/buttons.bootstrap4.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/custom/libs/datatables/select.bootstrap4.css' %}" rel="stylesheet" type="text/css" />
+
+        <!-- App css -->
+        <link href="{% static 'assets/custom/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/custom/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/custom/css/app.min.css' %}" rel="stylesheet" type="text/css" />
+
+        <!-- Custome Style -->
+        <link href="{% static 'assets/custom/css/backtesting.css' %}" rel="stylesheet" type="text/css" >
+
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-md-3">
+                <a type="button" href="/logout" id="btn-logout" class="btn btn-secondary waves-effect mt-3 ml-3">Logout</a>
+            </div>
+            <div class="col-md-9">
+                <div class="container-backtesting">
+                    <!-- OHLC Chart Toolbar -->
+                    <div class="mt-4">
+                        <!-- Calendar interval -->
+                        <div style="display: inline-flex;">
+                            <div class="form-group mb-3 mr-3">
+                                <label>Start Date/Time</label>
+                                <input type="text" id="datetime-from" class="form-control right" placeholder="Start Date/Time">
+                            </div>
+                            <div class="form-group mb-3 mr-3">
+                                <label>End Date/Time</label>
+                                <input type="text" id="datetime-to" class="form-control right" placeholder="End Date/Time">
+                            </div>                    
+                        </div>
+                        <div style="display: inline-flex; float:right;">
+                            <div class="form-group mb-3 mr-3">
+                                <label>Bar Type</label><br>
+                                <select id="select-bartype" data-plugin="customselect">
+                                    <option value="1min" selected>1min</option>
+                                    <option value="5min">5min</option>
+                                    <option value="15min">15min</option>
+                                    <option value="30min">30min</option>
+                                    <option value="1hr">1hr</option>
+                                    <option value="1day">1day</option>
+                                </select>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group mb-3 mr-3">
+                                <label>Stock</label> <br/>
+                                <select id="select-stock" class="form-control" data-toggle="select2">
+                                    {% for item in stocks %}
+                                    <option value="{{item}}">{{item}}</option>
+                                    {% endfor %}
+                                </select>
+                                <div class="clearfix"></div>
+                            </div>
+                            <button type="button" id="btn-apply" class="btn btn-success waves-effect waves-light btn-apply">Apply</button>
+                        </div>
+                    </div>
+                    <!-- OHLC Chart -->
+                    <h2 class="ohlc-title">OHLC Chart</h2>
+                    <div id="ohlc-chart"></div>
+                    
+                    <!-- History Table -->
+                    <h2 class="ohlc-title">History Table</h2>
+                    <table id="ohlc-history-table" class="table dt-responsive nowrap">
+                        <thead>
+                            <tr>
+                                <th>Date/time</th>
+                                <th>Stock</th>
+                                <th>Open</th>
+                                <th>High</th>
+                                <th>Low</th>
+                                <th>Close</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in json_table.status %}
+                            <tr>
+                                <td>{{ item.date_time }}</td>
+                                <td>{{ item.symbol }}</td>
+                                <td>{{ item.open }}</td>
+                                <td>{{ item.high }}</td>
+                                <td>{{ item.low }}</td>
+                                <td>{{ item.close }}</td>
+                            </tr>
+                            {% endfor %}                    
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- custom JS -->
+        <!-- Vendor js -->
+        <script src="{% static 'assets/custom/js/vendor.min.js' %}"></script>
+
+        <!-- Plugins js-->
+        <script src="{% static 'assets/custom/libs/flatpickr/flatpickr.min.js' %}"></script>
+
+        <!-- App js -->
+        <script src="{% static 'assets/custom/js/app.min.js' %}"></script>
+
+        <!-- OHLC Chart Resources -->
+        <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+        <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+        <script src="https://cdn.amcharts.com/lib/4/themes/dark.js"></script>
+        <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+
+        <script src="{% static 'assets/custom/libs/jquery-nice-select/jquery.nice-select.min.js' %}"></script>
+        <script src="{% static 'assets/custom/libs/select2/select2.min.js' %}"></script>
+
+        <!-- third party js -->
+        <script src="{% static 'assets/custom/libs/datatables/jquery.dataTables.js' %}"></script>
+        <script src="{% static 'assets/custom/libs/datatables/dataTables.bootstrap4.js' %}"></script>
+        <script src="{% static 'assets/custom/libs/datatables/dataTables.buttons.min.js' %}"></script>
+        <!-- third party js ends -->
+
+        <!-- Chart code -->
+        <script>
+            // Themes begin
+            am4core.useTheme(am4themes_dark);
+            am4core.useTheme(am4themes_animated);
+            // Themes end
+            var chart = am4core.create("ohlc-chart", am4charts.XYChart);
+            chart.paddingRight = 20;
+
+            chart.dateFormatter.inputDateFormat = "YYYY-MM-dd HH:mm";
+
+            var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+            dateAxis.renderer.grid.template.location = 0;
+
+            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+            valueAxis.tooltip.disabled = true;
+
+            var series = chart.series.push(new am4charts.OHLCSeries());
+            series.dataFields.dateX = "date";
+            series.dataFields.valueY = "close";
+            series.dataFields.openValueY = "open";
+            series.dataFields.lowValueY = "low";
+            series.dataFields.highValueY = "high";
+            series.tooltipText = "Open:${openValueY.value}\nLow:${lowValueY.value}\nHigh:${highValueY.value}\nClose:${valueY.value}";
+            series.strokeWidth = 2;
+
+            chart.cursor = new am4charts.XYCursor();
+
+            // a separate series for scrollbar
+            var lineSeries = chart.series.push(new am4charts.LineSeries());
+            lineSeries.dataFields.dateX = "date";
+            lineSeries.dataFields.valueY = "close";
+            // need to set on default state, as initially series is "show"
+            lineSeries.defaultState.properties.visible = false;
+
+            // hide from legend too (in case there is one)
+            lineSeries.hiddenInLegend = true;
+            lineSeries.fillOpacity = 0.5;
+            lineSeries.strokeOpacity = 0.5;
+
+            var scrollbarX = new am4charts.XYChartScrollbar();
+            scrollbarX.series.push(lineSeries);
+            chart.scrollbarX = scrollbarX;
+
+            chart.data = [];
+            var json_data = JSON.parse("{{json_chart|escapejs}}");
+            for(i = 0; i < json_data["status"].length; i++){
+                chart.data.push({
+                    "date": json_data["status"][i].date_time,
+                    "open": json_data["status"][i].open,
+                    "high": json_data["status"][i].high,
+                    "low": json_data["status"][i].low,
+                    "close": json_data["status"][i].close
+                });
+            }
+
+            chart.events.on("inited", function() {
+                // dateAxis.zoomToDates(new Date(2011, 08, 01), new Date(2011, 10, 28))
+            });
+
+            $(function () {
+                $.fn.callAPI = function(){
+                    // GET AJAX request
+                    var formData = new FormData();
+                    formData.append("barType", $("#select-bartype").val());
+                    formData.append("stockType", $("#select-stock").val());
+                    formData.append("startDateTime", $("#datetime-from").val());
+                    formData.append("endDateTime", $("#datetime-to").val());
+
+                    $.ajax({
+                        type: 'POST',
+                        url: "/ajax/getUpdatedOHLC/",
+                        data: formData,
+                        headers: { "X-CSRFToken": "{{ csrf_token }}" },
+                        processData: false,
+                        cache: false,
+                        contentType: false,
+                        success: function (response) {
+                            json_response = response.json_table['status'];
+                            var tbodyHTML = "";
+                            var chartArr = [];
+                            $("#ohlc-history-table").dataTable().fnDestroy();
+                            for(i = 0; i < json_response.length; i++){
+                                tbodyHTML += `
+                                <tr>
+                                    <td>` + json_response[i].date_time + `</td>
+                                    <td>` + json_response[i].symbol + `</td>
+                                    <td>` + json_response[i].open + `</td>
+                                    <td>` + json_response[i].high + `</td>
+                                    <td>` + json_response[i].low + `</td>
+                                    <td>` + json_response[i].close + `</td>
+                                    </tr>
+                                    `;
+                                chartArr.push({
+                                    "date": json_response[i].date_time,
+                                    "open": json_response[i].open,
+                                    "high": json_response[i].high,
+                                    "low": json_response[i].low,
+                                    "close": json_response[i].close
+                                });
+                            }
+                            $("#ohlc-history-table tbody").html(tbodyHTML);
+                            $("#ohlc-history-table").DataTable({
+                                language:{
+                                    paginate:{previous:"<i class='mdi mdi-chevron-left'>",next:"<i class='mdi mdi-chevron-right'>"}
+                                },
+                                drawCallback:function(){
+                                    $(".dataTables_paginate > .pagination").addClass("pagination-rounded")
+                                }
+                            });
+                            chart.data = chartArr;
+                        },
+                        error: function (response) {
+                            console.log(response)
+                        }
+                    });
+                }
+                $("#select-bartype").niceSelect();
+                $("#select-stock").select2();
+                $("#ohlc-history-table").DataTable({
+                    language:{
+                        paginate:{previous:"<i class='mdi mdi-chevron-left'>",next:"<i class='mdi mdi-chevron-right'>"}
+                    },
+                    drawCallback:function(){
+                        $(".dataTables_paginate > .pagination").addClass("pagination-rounded")
+                    }
+                });
+
+                var d = new Date();
+                d.setDate(d.getDate() - 10);
+
+                $('#datetime-from').flatpickr({enableTime: true, defaultDate: d, dateFormat:"Y-m-d H:i"});
+                $('#datetime-to').flatpickr({enableTime: true, defaultDate: new Date(), dateFormat:"Y-m-d H:i"});
+                
+                $('#btn-apply').on('click', function(e){ 
+                    console.log("JSON API is called!")           
+                    $.fn.callAPI(); 
+                })
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+{% load static %}
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Softnio">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+    <!-- Site Title  -->
+    <title>Kenalgotrade - Online Algorithmic Retail Trading</title>
+    <!-- Bundle and Base CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/vendor.bundle.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style-azalea.css' %}">
+</head>
+
+<body class="nk-body body-wider bg-theme">
+
+    <div class="nk-wrap">
+        <header class="nk-header page-header is-transparent is-sticky is-dark" id="header">
+            <!-- Header @s -->
+            <div class="header-main">
+                <div class="header-container container container-xxl">
+                    <div class="header-wrap">
+                        <!-- Logo @s -->
+                        <div class="header-logo logo animated" data-animate="fadeInDown" data-delay=".6">
+                            <a href="/" class="logo-link">
+                                <img class="logo-dark" src="{% static 'images/logo-s2-white.png' %}" alt="logo">
+                                <img class="logo-light" src="{% static 'images/logo-s2-white.png' %}" alt="logo">
+                            </a>
+                        </div>
+
+                        <!-- Menu Toogle @s -->
+                        <div class="header-nav-toggle">
+                            <a href="#" class="navbar-toggle" data-menu-toggle="header-menu">
+                                <div class="toggle-line">
+                                    <span></span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Menu @s -->
+                        <div class="header-navbar animated" data-animate="fadeInDown" data-delay=".6">
+                            <nav class="header-menu" id="header-menu">
+                                <ul class="menu">
+                                    <li class="menu-item"><a class="menu-link nav-link" href="#">Home</a></li>
+                                    <li class="menu-item"><a class="menu-link nav-link" href="#about">About</a></li>
+                                    <li class="menu-item"><a class="menu-link nav-link" href="#contact">Contact</a></li>
+                                </ul>
+
+                                <ul class="menu-btns">
+                                    <li><a href="/login"
+                                            class="btn btn-md btn-thin btn-outline btn-auto btn-primary btn-round no-change"><span>Login</span></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div><!-- .header-navbar @e -->
+                    </div>
+                </div>
+            </div><!-- .header-main @e -->
+
+            <div class="banner banner-fs tc-light">
+
+                <div class="nk-block nk-block-sm nk-block-header my-auto">
+                    <div class="container container-xxl pt-5">
+                        <div
+                            class="row align-items-center justify-content-center justify-content-lg-between gutter-vr-30px">
+                            <div class="col-lg-6 order-lg-last">
+                                <div class="banner-gfx banner-gfx-auto animated" data-animate="fadeInUp"
+                                    data-delay=".7">
+                                    <img src="{% static 'images/azalea/gfx-e.png' %}" alt="header">
+                                </div>
+                            </div><!-- .col -->
+                            <div class="col-xl-5 col-lg-6 col-sm-10 text-center text-lg-left">
+                                <div class="banner-caption">
+                                    <h1 class="title title-lg ttu animated" data-animate="fadeInUp" data-delay=".8">
+                                        Online Algorithmic Retail Trading Platform</h1>
+                                    <p class="lead animated" data-animate="fadeInUp" data-delay=".9">We trade on stocks,
+                                        forex using fast and reliable algorithms, representing past data and analysis
+                                        from historic events.</p>
+                                    <div class="cpn-action animated" data-animate="fadeInUp" data-delay="1">
+                                        <a class="btn btn-primary btn-round" href="/login">Get Started Now</a>
+                                    </div>
+                                </div>
+                            </div><!-- .col -->
+                        </div><!-- .row -->
+                    </div>
+                </div>
+                <div class="nk-block nk-block-status">
+                    <div class="container container-xxl">
+                        <div class="row gutter-vr-40px justify-content-between">
+                            <div class="col-xxl-6 col-xl-5 col-lg-5">
+                                <div class="progress-wrap progress-wrap-point animated" data-animate="fadeInUp"
+                                    data-delay="0.8">
+                                    <ul class="progress-info progress-info-s2">
+                                        <li>Raised - <span>100,000 CAD</span></li>
+                                        <li class="text-right">Target - <span>1,000,000 CAD</span></li>
+                                    </ul>
+                                    <div class="progress-bar progress-bar-xs">
+                                        <div class="progress-percent progress-percent-s2" data-percent="30"></div>
+                                        <div class="progress-point" data-point="25">Soft Cap</div>
+                                        <div class="progress-point" data-point="55">Crowdsale</div>
+                                        <div class="progress-point" data-point="85">Hard Cap</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xxl-5 col-xl-6 col-lg-7 text-center text-sm-left">
+                                <div class="row justify-content-around gutter-vr-30px">
+                                    <div class="col-sm-4 col-md-6 col-lg-4 col-xl-5">
+                                        <div class="status-info animated" data-animate="fadeInUp" data-delay="0.9">
+                                            <h6 class="title title-xxs tc-default status-title ttu">Current Bonus</h6>
+                                            <h3 class="fz-3 fw-3 status-percent">25% - 200%</h3>
+                                            <div class="fz-8">Contributors can receive</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8 col-md-6 col-lg-7 col-xl-7">
+                                        <div class="status-countdown float-sm-right animated" data-animate="fadeInUp"
+                                            data-delay="1">
+                                            <h6 class="title title-xxs tc-default status-title ttu">The Bonus ends in
+                                            </h6>
+                                            <div class="countdown justify-content-center justify-content-sm-start countdown-s3 countdown-s3-alt"
+                                                data-date="2021/10/15" data-min-text="Minutes" data-sec-text="Seconds">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nk-block nk-block-actions">
+                    <div class="container container-xxl">
+                        <div class="row gutter-vr-40px align-items-center">
+                            <div class="col-sm-7 d-flex justify-content-center justify-content-sm-start">
+                                <ul
+                                    class="btn-grp btn-grp-break justify-content-center justify-content-sm-start gutter-vr-20px">
+                                    <li class="animated" data-animate="fadeInUp" data-delay="0.8"><a href="#"
+                                            class="link link-light link-break video-popup"><em
+                                                class="icon-circle icon-border icon-animation fas fa-play"></em><span>Watch
+                                                a Video</span></a></li>
+                                    <li class="animated" data-animate="fadeInUp" data-delay="0.9"><a href="/login"
+                                            class="link link-light link-break"><em
+                                                class="icon-circle icon-border far fa-lightbulb"></em><span>Open Your
+                                                Account</span></a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-5">
+                                <ul class="social-links social-links-s2 justify-content-center justify-content-sm-end animated"
+                                    data-animate="fadeInUp" data-delay="1">
+                                    <li><a href="#"><em class="fab fa-facebook-f"></em></a></li>
+                                    <li><a href="#"><em class="fab fa-twitter"></em></a></li>
+                                    <li><a href="#"><em class="fab fa-instagram"></em></a></li>
+                                    <li><a href="#"><em class="fab fa-telegram"></em></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Place Particle Js -->
+                <div id="particles-bg" class="particles-container is-fixed particles-bg op-20"></div>
+
+            </div>
+
+        </header>
+
+        <main class="nk-pages tc-light">
+            <!-- // -->
+            <section class="section" id="about">
+
+                <div class="container">
+                    <div class="row justify-content-center text-center">
+                        <div class="col-lg-6">
+                            <div class="section-head section-head-s2">
+                                <h2 class="title title-xl animated" data-animate="fadeInUp" data-delay="0.1"
+                                    title="About Us">ECOSYSTEMS</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container container-xxl">
+                    <div class="nk-block">
+                        <div class="row text-center align-items-lg-start gutter-vr-40px">
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="feature feature-s6 feature-s6-1 animated" data-animate="fadeInUp"
+                                    data-delay="0.3">
+                                    <div class="feature-text">
+                                        <h5 class="title title-sm ttu">Trading Company</h5>
+                                        <p>We are an algorithmic retail trading company established to aid you in
+                                            investing properly.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="feature feature-s6 feature-s6-2 animated" data-animate="fadeInUp"
+                                    data-delay="0.4">
+                                    <div class="feature-text">
+                                        <h5 class="title title-sm ttu">High Top Investment</h5>
+                                        <p>We assist our investors in getting the most out of their investment. In the
+                                            last month, we have made around 6% profit a day by using our state of the
+                                            art algorithm!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="feature feature-s6 feature-s6-3 animated" data-animate="fadeInUp"
+                                    data-delay="0.5">
+                                    <div class="feature-text">
+                                        <h5 class="title title-sm ttu">Worldwide Coverage</h5>
+                                        <p>We cooperate with some of the largest companies in countries all over the
+                                            world. Including, the United Kingdom, the United States of America,
+                                            Australia and Hong Kong.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="feature feature-s6 feature-s6-4 animated" data-animate="fadeInUp"
+                                    data-delay="0.6">
+                                    <div class="feature-text">
+                                        <h5 class="title title-sm ttu">Performance and Reliability</h5>
+                                        <p>We have formed a large network that ensures a high level of performance and
+                                            reliability to get the most out of your investment.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-image bg-contain bg-bottom-center bg-ecosystems animated d-none d-sm-block"
+                            data-animate="fadeInUp" data-delay="0.2">
+                            <img src="{% static 'images/globe-particle.png' %}" alt="globe">
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <!-- // -->
+            <section class="section" id="about1">
+
+                <div class="container">
+                    <div class="row justify-content-center text-center">
+                        <div class="col-lg-6">
+                            <div class="section-head section-head-s2">
+                                <h2 class="title title-xl animated" data-animate="fadeInUp" data-delay="0.1"
+                                    title="PLATFORM">PLATFORM</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container container-xxl">
+                    <div class="nk-block">
+                        <div class="row justify-content-center">
+                            <div class="col-xl-6 col-lg-8">
+                                <ul class="nav tab-nav tab-nav-btn-bdr-s2 justify-content-center justify-content-sm-between pb-4 pb-sm-5 animated"
+                                    data-animate="fadeInUp" data-delay="0.2">
+                                    <li><a class="active" data-toggle="tab" href="#tab-1-1">FOR Participators</a></li>
+                                    <li class="tab-nav-sap d-none d-sm-block"></li>
+                                    <li><a data-toggle="tab" href="#tab-1-2">For Investors</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="tab-1-1">
+                                <div class="row align-items-center justify-content-between gutter-vr-40px">
+                                    <div class="col-lg-6 order-lg-last">
+                                        <div class="nk-block-img nk-block-ca animated" data-animate="fadeInUp"
+                                            data-delay="0.2">
+                                            <div class="nk-circle-animation nk-df-center fast"></div>
+                                            <!-- .circle-animation -->
+                                            <img class="shadow rounded"
+                                                src="{% static 'images/app-screens/sc-medium-a.png' %}" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <div class="nk-block-text mgb-m30">
+                                            <h2 class="title title-md animated" data-animate="fadeInUp"
+                                                data-delay="0.2">A Open Platform for our Participators</h2>
+                                            <p class="animated" data-animate="fadeInUp" data-delay="0.2">Each
+                                                participator can choose register with confidence</p>
+                                            <div class="feature feature-inline feature-middle animated"
+                                                data-animate="fadeInUp" data-delay="0.3">
+                                                <div class="feature-icon feature-icon-md">
+                                                    <em class="icon icon-md icon-grd ikon ikon-bulb"></em>
+                                                </div>
+                                                <div class="feature-text">
+                                                    <p>User have full access to trading information on the platform</p>
+                                                </div>
+                                            </div>
+                                            <div class="feature feature-inline feature-middle animated"
+                                                data-animate="fadeInUp" data-delay="0.4">
+                                                <div class="feature-icon feature-icon-md">
+                                                    <em class="icon icon-md icon-grd ikon ikon-paricle"></em>
+                                                </div>
+                                                <div class="feature-text">
+                                                    <p>Our multi-currency exchange will enable us provide you with the
+                                                        best ROI</p>
+                                                </div>
+                                            </div>
+                                            <div class="feature feature-inline feature-middle animated"
+                                                data-animate="fadeInUp" data-delay="0.5">
+                                                <div class="feature-icon feature-icon-md">
+                                                    <em class="icon icon-md icon-grd ikon ikon-bulb-2"></em>
+                                                </div>
+                                                <div class="feature-text">
+                                                    <p>Users will be able to take referral bonuses and improve the
+                                                        growth of their standard of living.</p>
+                                                </div>
+                                            </div>
+                                            <div class="feature feature-inline feature-middle animated"
+                                                data-animate="fadeInUp" data-delay="0.6">
+                                                <div class="feature-icon feature-icon-md">
+                                                    <em class="icon icon-md icon-grd ikon ikon-document-2"></em>
+                                                </div>
+                                                <div class="feature-text">
+                                                    <p>Withdraw your money to you account with ease when due and ready.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="tab-1-2">
+                                <div class="row align-items-center justify-content-between gutter-vr-40px">
+                                    <div class="col-lg-6 order-lg-last">
+                                        <div class="nk-block-img nk-block-ca animated" data-animate="fadeInUp"
+                                            data-delay="0.2">
+                                            <div class="nk-circle-animation nk-df-center fast"></div>
+                                            <!-- .circle-animation -->
+                                            <img class="shadow rounded"
+                                                src="{% static 'images/app-screens/sc-medium-a.png' %}" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <div class="nk-block-text mgb-m30">
+                                            <h2 class="title title-md animated" data-animate="fadeInUp"
+                                                data-delay="0.2">A Open Platform for our Investors</h2>
+                                            <p class="animated" data-animate="fadeInUp" data-delay="0.2">Each investor
+                                                can choose the plan to take a part in the community</p>
+                                            <div class="feature feature-inline feature-middle animated"
+                                                data-animate="fadeInUp" data-delay="0.3">
+                                                <div class="feature-icon feature-icon-md">
+                                                    <em class="icon icon-md icon-grd ikon ikon-bulb"></em>
+                                                </div>
+                                                <div class="feature-text">
+                                                    <p>User have full access to trading knowledge provided by the
+                                                        platform proofs</p>
+                                                </div>
+                                            </div>
+                                            <div class="feature feature-inline feature-middle animated"
+                                                data-animate="fadeInUp" data-delay="0.4">
+                                                <div class="feature-icon feature-icon-md">
+                                                    <em class="icon icon-md icon-grd ikon ikon-paricle"></em>
+                                                </div>
+                                                <div class="feature-text">
+                                                    <p>Our multi-currency exchange will enable us provide you with the
+                                                        best ROI</p>
+                                                </div>
+                                            </div>
+                                            <div class="feature feature-inline feature-middle animated"
+                                                data-animate="fadeInUp" data-delay="0.5">
+                                                <div class="feature-icon feature-icon-md">
+                                                    <em class="icon icon-md icon-grd ikon ikon-bulb-2"></em>
+                                                </div>
+                                                <div class="feature-text">
+                                                    <p>Users will be able to expand their financial reach beyond their
+                                                        imagination across the world.</p>
+                                                </div>
+                                            </div>
+                                            <div class="feature feature-inline feature-middle animated"
+                                                data-animate="fadeInUp" data-delay="0.6">
+                                                <div class="feature-icon feature-icon-md">
+                                                    <em class="icon icon-md icon-grd ikon ikon-document-2"></em>
+                                                </div>
+                                                <div class="feature-text">
+                                                    <p>Withdraw your funds easily whenever you are ready and on its due
+                                                        date.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- .container -->
+
+            </section>
+            <!-- // -->
+            <section class="section" id="about2">
+
+                <div class="container">
+                    <div class="row justify-content-center text-center">
+                        <div class="col-lg-6">
+                            <div class="section-head section-head-s2">
+                                <h2 class="title title-xl animated" data-animate="fadeInUp" data-delay="0.1"
+                                    title="More About Us">More About Us</h2>
+                                <p class="animated" data-animate="fadeInUp" data-delay="0.2">State of the Art Exchange,
+                                    Stability and Predictability</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container container-xxl">
+                    <div class="nk-block">
+                        <div
+                            class="row align-items-center justify-content-center justify-content-xl-between gutter-vr-30px">
+                            <div class="col-xxl-6 col-xl-6 col-lg-8">
+                                <div class="nk-block-img nk-block-plx animated" data-animate="fadeInUp"
+                                    data-delay="0.3">
+                                    <img class="shadow rounded" src="{% static 'images/app-screens/sc-medium-b.png' %}"
+                                        alt="">
+                                    <img class="nk-block-img-plx plx-screen shadow rounded"
+                                        src="{% static 'images/app-screens/sc-small-d.jpg' %}" alt="">
+                                    <img class="nk-block-img-plx plx-circle plx-circle-s1"
+                                        src="{% static 'images/gfx/circle-a.png' %}" alt="">
+                                    <img class="nk-block-img-plx plx-polygon plx-polygon-s1"
+                                        src="{% static 'images/gfx/polygon-a.png' %}" alt="">
+                                    <img class="nk-block-img-plx plx-triangle plx-triangle-s1"
+                                        src="{% static 'images/gfx/triangle-a.png' %}" alt="">
+                                </div>
+                            </div>
+                            <div class="col-xxl-5 col-xl-6 col-lg-8">
+                                <div class="nk-block-text">
+                                    <div class="feature feature-inline animated" data-animate="fadeInUp"
+                                        data-delay="0.4">
+                                        <div class="feature-icon feature-icon-md">
+                                            <em class="icon icon-xs icon-circle fas fa-check"></em>
+                                        </div>
+                                        <div class="feature-text">
+                                            <p>Investment projects offer a wide range of marketing types to make money,
+                                                from rapid yet risky income, all the way to plans focused on the long
+                                                term and on overall stability.</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature feature-inline animated" data-animate="fadeInUp"
+                                        data-delay="0.5">
+                                        <div class="feature-icon feature-icon-md">
+                                            <em class="icon icon-xs icon-circle fas fa-check"></em>
+                                        </div>
+                                        <div class="feature-text">
+                                            <p>The Kenalgotrade platform was created to maximize security and stability
+                                                of the system. Predictable payments combined with simple and profitable
+                                                terms for all investors.</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature feature-inline animated" data-animate="fadeInUp"
+                                        data-delay="0.6">
+                                        <div class="feature-icon feature-icon-md">
+                                            <em class="icon icon-xs icon-circle fas fa-check"></em>
+                                        </div>
+                                        <div class="feature-text">
+                                            <p>Those principles lies at the very heart of the platform. 100% income
+                                                after our stipulated timeframe allows us to payback your initial
+                                                investment on the agreed day, and the future profit provides net income.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="feature feature-inline animated" data-animate="fadeInUp"
+                                        data-delay="0.7">
+                                        <div class="feature-icon feature-icon-md">
+                                            <em class="icon icon-xs icon-circle fas fa-check"></em>
+                                        </div>
+                                        <div class="feature-text">
+                                            <p>With a clean and simple payout plan, we can easily build effective
+                                                investment strategies, and using various instruments generate income for
+                                                investors, as well as for the system itself.</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-center text-sm-left animated" data-animate="fadeInUp"
+                                        data-delay="0.9">
+                                        <a href="/login" class="btn btn-round btn-primary">Open Account</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="section" id="contact">
+
+                <div class="container">
+                    <!-- Block @s -->
+                    <div class="nk-block nk-block-about">
+                        <div class="row justify-content-between align-items-center gutter-vr-50px">
+                            <div class="col-lg-6">
+                                <div class="nk-block-text">
+                                    <div class="nk-block-text-head">
+                                        <h2 class="title title-lg ttu animated" data-animate="fadeInUp"
+                                            data-delay="0.7">Contact Us</h2>
+                                        <p class="animated" data-animate="fadeInUp" data-delay="0.8">We are always open
+                                            and we welcome and questions you have for our team. If you wish to get in
+                                            touch, please fill out the form below. Someone from our team will get back
+                                            to you shortly.</p>
+                                    </div>
+                                    <form class="nk-form-submit" id="contact_form" action="javascript:void(0);"
+                                        method="post">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="field-item animated" data-animate="fadeInUp"
+                                                    data-delay="0.8">
+                                                    <label class="field-label ttu">Your Name</label>
+                                                    <div class="field-wrap">
+                                                        <input id="name" placeholder="Introduce yourself" type="text"
+                                                            class="input-bordered required">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="field-item animated" data-animate="fadeInUp"
+                                                    data-delay="0.9">
+                                                    <label class="field-label ttu">Your Email</label>
+                                                    <div class="field-wrap">
+                                                        <input id="email_address" placeholder="Who do we replay to"
+                                                            type="email" class="input-bordered required email">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="field-item animated" data-animate="fadeInUp" data-delay="1.0">
+                                            <label class="field-label ttu">Your Message</label>
+                                            <div class="field-wrap">
+                                                <textarea id="message" placeholder="Leave your question or comment here"
+                                                    class="input-bordered input-textarea required"></textarea>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="d-none" name="form-anti-honeypot" value="">
+                                        <div class="row">
+                                            <div class="col-sm-5 text-right animated" data-animate="fadeInUp"
+                                                data-delay="1.1">
+                                                <div id="com_preload" style="display: none;">
+                                                    <img src="{% static 'images/preloader.gif' %}" />
+                                                </div>
+                                                <div id="com_base">
+                                                    <button type="button" onclick="SubmitContact()"
+                                                        class="btn btn-round btn-primary">SEND</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-7 order-sm-first">
+                                                <div class="form-results" id="result_land">
+
+                                                    <div id="contact_success" style="display: none;">
+                                                        <label class="alert-success"
+                                                            style="padding: 1em; border-radius: 5px; color: #fff; background-color: #080;"
+                                                            id="success_message"><i class="fa fa-check"></i>
+                                                            &nbsp;Message Sent Successfully</label>
+                                                    </div>
+                                                    <div id="contact_failed" style="display: none;">
+                                                        <label class="alert-danger"
+                                                            style="padding: 1em; border-radius: 5px; color: #fff; background-color: #d00;"
+                                                            id="fail_message"><i class="fa fa-times"></i> &nbsp;Message
+                                                            not sent</label>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 text-center order-lg-first">
+                                <div class="nk-block-contact nk-block-contact-s1  animated" data-animate="fadeInUp"
+                                    data-delay="0.1">
+                                    <ul class="contact-list">
+                                        <li class="animated" data-animate="fadeInUp" data-delay="0.3">
+                                            <em class="contact-icon fas fa-envelope"></em>
+                                            <div class="contact-text">
+                                                <span>office@kenalgotrade.com</span>
+                                            </div>
+                                        </li>
+                                        <!--<li class="animated" data-animate="fadeInUp" data-delay="0.4">
+                                            <em class="contact-icon fas fa-headphones"></em>
+                                            <div class="contact-text">
+                                                <span>+1 (902) 440-5652</span>
+                                            </div>
+                                        </li>-->
+                                    </ul>
+                                    <div class="nk-circle-animation nk-df-center white small"></div>
+                                    <!-- .circle-animation -->
+                                </div>
+
+                                <ul class="social-links social-links-s2 justify-content-center animated"
+                                    data-animate="fadeInUp" data-delay="0.6">
+                                    <li><a href="#"><em class="fab fa-facebook-f"></em></a></li>
+                                    <li><a href="#"><em class="fab fa-twitter"></em></a></li>
+                                    <li><a href="#"><em class="fab fa-instagram"></em></a></li>
+                                    <li><a href="#"><em class="fab fa-telegram"></em></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!-- .block @e -->
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="nk-footer-bar section section-s tc-light">
+            <div class="container container-xxl">
+                <div class="row gutter-vr-10px">
+                    <div class="col-lg-6 order-lg-last text-lg-right">
+                        <ul class="footer-nav">
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="copyright-text copyright-text-s2">Copyright © 2021</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <div class="nk-ovm nk-ovm-repeat nk-ovm-fixed shape-i">
+            <div class="ovm-line"></div>
+        </div>
+    </div>
+
+
+
+    <!-- preloader -->
+    <div class="preloader preloader-alt no-split"><span class="spinner spinner-alt"><img class="spinner-brand"
+                src="{% static 'images/logo-s2-white.png' %}" alt=""></span></div>
+
+    <!-- JavaScript -->
+    <script src="{% static 'assets/js/jquery.bundle.js' %}"></script>
+    <script src="{% static 'assets/js/scripts.js' %}"></script>
+    <script src="{% static 'assets/js/chartsf.js' %}"></script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/5f4ef70c4704467e89eb79ed/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+
+<!-- Mirrored from kenalgotrade.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Mar 2021 06:04:28 GMT -->
+
+</html>
